@@ -47,28 +47,28 @@ async def main() -> None:
         api_key = config.lm.api_key,
     )
 
-    async with MultiServerMCPClient(
-            {"rekipe": {"url": config.mcp.url, "transport": "streamable_http"}}
-    ) as client:
-        tools = client.get_tools()
-        graph = _build_graph(model, tools)
+    client = MultiServerMCPClient(
+        {"rekipe": {"url": config.mcp.url, "transport": "streamable_http"}}
+    )
+    tools = await client.get_tools()
+    graph = _build_graph(model, tools)
 
-        logger.info(f"🤖 LangGraph agent ready mcp={config.mcp.url} model={config.lm.model_name}")
+    logger.info(f"🤖 LangGraph agent ready mcp={config.mcp.url} model={config.lm.model_name}")
 
-        history = []
-        while True:
-            try:
-                user_input = input("\n> ").strip()
-                if user_input.lower() in ("exit", "quit", "q"):
-                    break
-                if not user_input:
-                    continue
-
-                result = await graph.ainvoke({"messages": history + [{"role": "user", "content": user_input}]})
-                history = result["messages"]
-                print(result["messages"][-1].content)
-            except (KeyboardInterrupt, EOFError):
+    history = []
+    while True:
+        try:
+            user_input = input("\n> ").strip()
+            if user_input.lower() in ("exit", "quit", "q"):
                 break
+            if not user_input:
+                continue
+
+            result = await graph.ainvoke({"messages": history + [{"role": "user", "content": user_input}]})
+            history = result["messages"]
+            print(result["messages"][-1].content)
+        except (KeyboardInterrupt, EOFError):
+            break
 
 
 if __name__ == "__main__":

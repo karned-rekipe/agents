@@ -1,8 +1,13 @@
 mcp:
   url: http://127.0.0.1:8001/mcp
 
-lm:
+lm-back:
   model_name: qwen/qwen3.5-9b
   base_url: http://localhost:1234/v1
   api_key: lm-studio
+
+lm:
+  model_name: ministral-3:8b  # modèle chargé dans Ollama — min 7B pour le tool calling
+  base_url: http://localhost:11434/v1  # endpoint OpenAI-compatible d'Ollama
+  api_key: ollama                  # valeur factice, LM Studio n'en exige pas
 
