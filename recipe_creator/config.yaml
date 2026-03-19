@@ -1,0 +1,25 @@
+mcp:
+  url: http://127.0.0.1:8001/mcp
+
+lm:
+  planner:
+    provider: anthropic
+    model_name: claude-sonnet-4-5
+    api_key:
+    # Alternatives :
+    # model_name: claude-haiku-4-5         # plus rapide, moins cher
+    # model_name: claude-opus-4-5          # meilleur, plus cher
+    #
+    # Pour un LLM local (LM Studio / Ollama) :
+    # provider: openai
+    # model_name: qwen/qwen3.5-9b:2
+    # base_url: http://127.0.0.1:1234/v1
+    # api_key: lm-studio
+
+  executor:
+    provider: anthropic
+    model_name: claude-sonnet-4-5
+    api_key:
+
+fuzzy:
+  threshold: 80
