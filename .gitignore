@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# uv
+uv.lock
+
+# Ruff
+.ruff_cache/
+
+# Chainlit
+.chainlit/
+.files/
+
+# Config (use config_sample.yaml as template)
+**/config.yaml
+
+# Python version (project-specific, may want to commit)
+# .python-version
+.idea/

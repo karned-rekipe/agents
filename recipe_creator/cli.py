@@ -3,8 +3,12 @@ import asyncio
 from langchain_core.messages import HumanMessage
 from loguru import logger
 
-from agent_config import load_config
-from graph import RecipeState, build_graph
+from application.graph import build_graph
+from application.state import RecipeState
+from infrastructure.config import load_config
+from infrastructure.logging import setup_logging
+
+setup_logging()
 
 
 async def main() -> None:

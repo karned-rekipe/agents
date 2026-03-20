@@ -5,7 +5,7 @@ lm:
   planner:
     provider: anthropic
     model_name: claude-sonnet-4-5
-    api_key:
+    api_key: YOUR_ANTHROPIC_API_KEY
     # Alternatives :
     # model_name: claude-haiku-4-5         # plus rapide, moins cher
     # model_name: claude-opus-4-5          # meilleur, plus cher
@@ -19,7 +19,8 @@ lm:
   executor:
     provider: anthropic
     model_name: claude-sonnet-4-5
-    api_key:
+    api_key: YOUR_ANTHROPIC_API_KEY
 
 fuzzy:
   threshold: 80
+

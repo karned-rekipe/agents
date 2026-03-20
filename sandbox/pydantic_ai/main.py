@@ -1,11 +1,11 @@
 import chainlit as cl
 from loguru import logger
+from pydantic_ai import Agent
 from pydantic_ai.mcp import MCPServerStreamableHTTP
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openai import OpenAIProvider
 
 from agent_config import load_config
-from pydantic_ai import Agent
 
 _config = load_config()
 logger.info(f"🤖 Agent starting mcp={_config.mcp.url} model={_config.lm.model_name}")
